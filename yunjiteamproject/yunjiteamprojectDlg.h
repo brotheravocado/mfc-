@@ -36,4 +36,7 @@ public:
 	afx_msg void OnBnClickedButton2();
 	CButton start;
 	afx_msg void OnBnClickedStart();
+	afx_msg void OnBnClickedEnd();
+	CImage m_img;
+
 };

@@ -68,6 +68,7 @@ BEGIN_MESSAGE_MAP(CyunjiteamprojectDlg, CDialogEx)
 	//ON_BN_CLICKED(IDC_BUTTON1, &CyunjiteamprojectDlg::OnBnClickedButton1)
 	//ON_BN_CLICKED(IDC_BUTTON2, &CyunjiteamprojectDlg::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_START, &CyunjiteamprojectDlg::OnBnClickedStart)
+	ON_BN_CLICKED(IDC_END, &CyunjiteamprojectDlg::OnBnClickedEnd)
 END_MESSAGE_MAP()
 
 
@@ -104,7 +105,7 @@ BOOL CyunjiteamprojectDlg::OnInitDialog()
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
 	
-
+	m_img.Load(_T("tree.jpg"));
 	
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
@@ -148,15 +149,11 @@ void CyunjiteamprojectDlg::OnPaint()
 	}
 	else
 	{
-		CDialogEx::OnPaint();
+
+		//CDialogEx::OnPaint();
 		CClientDC dc(this);
-		CDC MemDC;
-		MemDC.CreateCompatibleDC(&dc);
-		CBitmap bitmap;
-		bitmap.LoadBitmap(IDB_ISLAND);
-		CBitmap *oldBitmap = MemDC.SelectObject(&bitmap);
-		dc.BitBlt(10, 20, 400, 600, &MemDC, 5, 5, SRCCOPY);
-		dc.SelectObject(oldBitmap);
+		m_img.Draw(dc, 270, 300);
+		
 	}
 }
 
@@ -169,12 +166,3 @@ HCURSOR CyunjiteamprojectDlg::OnQueryDragIcon()
 
 
 
-
-
-
-
-void CyunjiteamprojectDlg::OnBnClickedStart() // 시작하기 눌렀을때
-{
-	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	
-}
