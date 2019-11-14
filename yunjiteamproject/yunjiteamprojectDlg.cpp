@@ -6,6 +6,7 @@
 #include "yunjiteamproject.h"
 #include "yunjiteamprojectDlg.h"
 #include "afxdialogex.h"
+#include <atlimage.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -64,6 +65,7 @@ BEGIN_MESSAGE_MAP(CyunjiteamprojectDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BUTTON1, &CyunjiteamprojectDlg::OnPERSON)
 END_MESSAGE_MAP()
 
 
@@ -99,7 +101,7 @@ BOOL CyunjiteamprojectDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
-
+	m_Img.Load(_T("person.png"));
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
 
@@ -142,6 +144,7 @@ void CyunjiteamprojectDlg::OnPaint()
 	else
 	{
 		CDialogEx::OnPaint();
+
 	}
 }
 
@@ -152,3 +155,17 @@ HCURSOR CyunjiteamprojectDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CyunjiteamprojectDlg::OnPERSON()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	//CClientDC dc(this);
+
+	//m_Img.Load(_T("person.png"));
+	
+
+	//m_Img.Draw(dc,0, 0);
+	CClientDC dc(this);
+	m_Img.Draw(dc, 200, 200);
+}
