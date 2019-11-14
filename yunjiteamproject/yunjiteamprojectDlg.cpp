@@ -6,6 +6,7 @@
 #include "yunjiteamproject.h"
 #include "yunjiteamprojectDlg.h"
 #include "afxdialogex.h"
+#include <atlimage.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -65,10 +66,6 @@ BEGIN_MESSAGE_MAP(CyunjiteamprojectDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	//ON_BN_CLICKED(IDC_BUTTON1, &CyunjiteamprojectDlg::OnBnClickedButton1)
-	//ON_BN_CLICKED(IDC_BUTTON2, &CyunjiteamprojectDlg::OnBnClickedButton2)
-	ON_BN_CLICKED(IDC_START, &CyunjiteamprojectDlg::OnBnClickedStart)
-	ON_BN_CLICKED(IDC_END, &CyunjiteamprojectDlg::OnBnClickedEnd)
 END_MESSAGE_MAP()
 
 
@@ -104,9 +101,6 @@ BOOL CyunjiteamprojectDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
-	
-	m_img.Load(_T("tree.jpg"));
-	
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -149,11 +143,7 @@ void CyunjiteamprojectDlg::OnPaint()
 	}
 	else
 	{
-
-		//CDialogEx::OnPaint();
-		CClientDC dc(this);
-		m_img.Draw(dc, 270, 300);
-		
+		CDialogEx::OnPaint();
 	}
 }
 
@@ -163,6 +153,4 @@ HCURSOR CyunjiteamprojectDlg::OnQueryDragIcon()
 {
 	return static_cast<HCURSOR>(m_hIcon);
 }
-
-
 
