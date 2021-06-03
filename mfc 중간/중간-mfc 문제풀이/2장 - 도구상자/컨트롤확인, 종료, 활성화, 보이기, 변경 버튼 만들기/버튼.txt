@@ -1,0 +1,40 @@
+void CyunjitoolDlg::OnBnClickedButtOk()
+{
+	MessageBox(_T("MFC 시작입니다"), _T("제목"), MB_OKCANCEL);
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}
+
+
+void CyunjitoolDlg::OnBnClickedButtExit()
+{
+	OnOK();
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}
+
+
+void CyunjitoolDlg::OnBnClickedButtEnable()
+{
+	static int click = 0;
+	if (click % 2 == 0) {
+		GetDlgItem(IDD_BUTT_OK)->EnableWindow(false);
+	}
+	else
+		GetDlgItem(IDD_BUTT_OK)->EnableWindow(true); click++;
+
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}
+
+
+void CyunjitoolDlg::OnBnClickedButtShow()
+{
+	static int show = 0;
+	if (show % 2 == 0) {
+		GetDlgItem(IDC_BUTT_EXIT)->ShowWindow(SW_HIDE);
+	}
+	else
+	{
+		GetDlgItem(IDC_BUTT_EXIT)->ShowWindow(SW_SHOW);
+	}
+	show++;
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+}
